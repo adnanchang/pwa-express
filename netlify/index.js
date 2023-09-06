@@ -71,4 +71,5 @@ app.use(`/api`, router)
 // Create an HTTP service.
 // app.listen(port, () => console.log(`Running on ${port}`))
 
-export const handler = serverless(api);
+module.exports = app;
+module.exports.handler = serverless(app);
