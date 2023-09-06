@@ -5,19 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon netlify/index.js",
-    "start": "./node_modules/.bin/netlify-lambda serve netlify",
-    "build": "./node_modules/.bin/netlify-lambda build netlify"
+    "dev": "nodemon netlify/functions/api.js"
   },
   "author": "Adnan",
   "license": "ISC",
   "dependencies": {
-    "@netlify/functions": "^2.0.2",
-    "@types/express": "^4.17.17",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mkcert": "^3.0.0",
-    "netlify-lambda": "^2.0.16",
     "serverless-http": "^3.2.0",
     "web-push": "^3.6.5"
   },
