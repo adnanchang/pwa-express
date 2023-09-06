@@ -12,7 +12,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mkcert": "^3.0.0",
     "serverless-http": "^3.2.0",
     "web-push": "^3.6.5"
   },
