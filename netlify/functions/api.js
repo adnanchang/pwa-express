@@ -51,7 +51,7 @@ router.get('/send-notification', (req, res) => {
   const message = 'Hello World'
   sendNotification(subscription, message)
   console.log('pushing notif....')
-  res.json({ message: 'message sent' })
+  res.json({ message: `pushing notif.... to ${subscription}` })
 })
 
 // The new /save-subscription endpoint
