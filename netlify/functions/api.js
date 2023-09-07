@@ -12,7 +12,10 @@ const port = 4000;
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.send('Hello World!'));
+router.get('/hello', (req, res) => {
+  console.log('Someone wanted us to say hello')
+  res.send('Hello World!')
+});
 
 const webpush = require('web-push') //requiring the web-push module
 const vapidKeys = {
@@ -66,7 +69,7 @@ router.post('/save-subscription', async (req, res) => {
   res.json({ message: 'success' });
 });
 
-app.use(`/api`, router)
+app.use(`/api/`, router)
 
 // Create an HTTP service.
 // app.listen(port, () => console.log(`Running on ${port}`))
