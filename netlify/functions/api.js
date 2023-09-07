@@ -44,7 +44,7 @@ const saveToDatabase = async (subscription) => {
 
 //function to send the notification to the subscribed device
 const sendNotification = (subscription, dataToSend = '') => {
-  if (!subscription) return;
+  if (!subscription) return false;
 
   //setting our previously generated VAPID keys
   webpush.setVapidDetails(
@@ -54,15 +54,22 @@ const sendNotification = (subscription, dataToSend = '') => {
   );
 
   webpush.sendNotification(subscription, dataToSend);
+
+  return true;
 };
 
 //route to test send notification
 router.get('/send-notification', (req, res) => {
   const subscription = dummyDb.subscription; //get subscription from your databse here.
   const message = 'Hello World';
-  sendNotification(subscription, message);
+
+  const lol = sendNotification(subscription, message);
+
   console.log('pushing notif....');
-  res.json({ message: `pushing notif....`, subscription, webpush });
+
+  if (lol) res.json({ message: `pushing notif....`, subscription, webpush });
+  
+  if (!lol) res.json({ message: `DIDNT PUSH SHIT SUB IS NULL`, webpush });
 });
 
 // The new /save-subscription endpoint
