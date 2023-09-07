@@ -3,10 +3,10 @@ const cors = require('cors');
 const serverless = require('serverless-http')
 
 const bodyParser = require('body-parser');
-const app = express();
+const api = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+api.use(cors());
+api.use(bodyParser.json());
 
 const port = 4000;
 
@@ -33,7 +33,7 @@ webpush.setVapidDetails(
 
 const dummyDb = { subscription: null }; //dummy in memory store
 const saveToDatabase = async (subscription) => {
-  // Since this is a demo app, I am going to save this in a dummy in memory store. Do not do this in your apps.
+  // Since this is a demo api, I am going to save this in a dummy in memory store. Do not do this in your apis.
   // Here you should be writing your db logic to save it.
   dummyDb.subscription = subscription;
 };
@@ -69,10 +69,10 @@ router.post('/save-subscription', async (req, res) => {
   res.json({ message: 'success' });
 });
 
-app.use(`/api/`, router)
+api.use(`/api/`, router)
 
 // Create an HTTP service.
-// app.listen(port, () => console.log(`Running on ${port}`))
+// api.listen(port, () => console.log(`Running on ${port}`))
 
-module.exports = app;
-module.exports.handler = serverless(app);
+module.exports = api;
+module.exports.handler = serverless(api);
