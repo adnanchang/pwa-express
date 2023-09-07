@@ -44,6 +44,8 @@ const saveToDatabase = async (subscription) => {
 
 //function to send the notification to the subscribed device
 const sendNotification = (subscription, dataToSend = '') => {
+  if (!subscription) return;
+
   //setting our previously generated VAPID keys
   webpush.setVapidDetails(
     'mailto:myuserid@email.com',
