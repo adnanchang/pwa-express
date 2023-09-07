@@ -69,7 +69,7 @@ router.post('/save-subscription', async (req, res) => {
   res.json({ message: 'success' });
 });
 
-api.use(`/api/`, router)
+api.use(`/`, router)
 
 // Create an HTTP service.
 // api.listen(port, () => console.log(`Running on ${port}`))
