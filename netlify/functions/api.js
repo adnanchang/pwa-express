@@ -5,7 +5,9 @@ const serverless = require('serverless-http')
 const bodyParser = require('body-parser');
 const api = express();
 
-api.use(cors());
+api.use(cors({
+  origin: 'https://phenomenal-conkies-08b2af.netlify.app'
+}));
 api.use(bodyParser.json());
 
 const port = 4000;
