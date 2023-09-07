@@ -72,6 +72,12 @@ router.get('/send-notification', (req, res) => {
   if (!lol) res.json({ message: `DIDNT PUSH SHIT SUB IS NULL`, webpush });
 });
 
+router.get('/get-sub', (req, res) => {
+  res.json({
+    dummyDb
+  })
+});
+
 // The new /save-subscription endpoint
 router.post('/save-subscription', async (req, res) => {
   const subscription = req.body;
