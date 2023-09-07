@@ -69,6 +69,13 @@ router.post('/save-subscription', async (req, res) => {
   res.json({ message: 'success' });
 });
 
+// The new /save-subscription endpoint
+router.post('/reset-subscription', async (req, res) => {
+  dummyDb = { subscription: null }; //dummy in memory store
+  console.log('RESET SUB')
+  res.json({ message: 'RESET SUBCCES' });
+});
+
 api.use('/api/', router);
 
 // Create an HTTP service.
