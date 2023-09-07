@@ -76,3 +76,4 @@ api.use('/api/', router);
 
 // module.exports = api;
 module.exports.handler = serverless(api);
+
